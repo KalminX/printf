@@ -31,9 +31,16 @@ int _printf(const char *format, ...)
 	va_start(my_entries, format);
 	while (*(format + i) != '\0')
 	{
-		if (*(format + i) == '\n')
+		if (*(format + i) == '\\')
 		{
-			write(1, &nl, 1);
+			switch (*(format + i +1))
+			{
+				case 'n':
+					write(1, &nl, 1);
+					break;
+				default:
+					break;
+			}
 		}
 		c_fmt_s(format + i, my_entries, &i);
 		i++;
@@ -77,4 +84,13 @@ void c_fmt_s(const char *s, va_list args, int *i)
 	{
 		write(1, s, 1);
 	}
+}
+
+#include <stdio.h>
+
+int main() {
+    char c = 'A';
+    int result = _printf("Character: %c\n", c);
+    printf("Result from _printf: %d\n", result);
+    return 0;
 }
