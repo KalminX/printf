@@ -6,6 +6,7 @@
  * @format: the formatted string
  * Return: returns the number of characters
  */
+int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
 	int char_no = 0;
@@ -13,6 +14,9 @@ int _printf(const char *format, ...)
 	char *str;
 	va_list my_entries;
 	va_start(my_entries, format);
+
+	if (format == NULL || *format == '\0')
+		return (-1);
 
 	while (*format)
 	{
@@ -45,6 +49,10 @@ int _printf(const char *format, ...)
 						str++;
 						char_no++;
 					}
+				}
+				else
+				{
+					return(-1);
 				}
 			}
 			else if (*format == '%')
