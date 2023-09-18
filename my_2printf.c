@@ -14,8 +14,8 @@ int _printf(const char *format, ...)
 	char c, nl = '\n';
 	char *str;
 	va_list my_entries;
-	va_start(my_entries, format);
 
+	va_start(my_entries, format);
 	if (format == NULL || *format == '\0')
 		return (-1);
 
@@ -53,7 +53,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					return(-1);
+					return (-1);
 				}
 			}
 			else if (*format == '%')
