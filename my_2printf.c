@@ -11,7 +11,7 @@ int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
 	int char_no = 0;
-	char c, nl = '\n';
+	char c, nl = '\n', tb = '\t';
 	char *str;
 	va_list my_entries;
 
@@ -29,6 +29,8 @@ int _printf(const char *format, ...)
 				write(1, &nl, 1);
 				char_no++;
 			}
+			else if (*format == 't')
+				write(1, &tb, 1);
 		}
 		if (*format == '%' && *(format + 1))
 		{
@@ -60,6 +62,10 @@ int _printf(const char *format, ...)
 			{
 				write(1, format, 1);
 				char_no++;
+			}
+			else
+			{
+				return (-1);
 			}
 		}
 		format++;
