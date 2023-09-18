@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + i) == '\\')
 		{
-			switch (*(format + i +1))
+			switch (*(format + i + 1))
 			{
 				case 'n':
 					write(1, &nl, 1);
@@ -84,13 +84,4 @@ void c_fmt_s(const char *s, va_list args, int *i)
 	{
 		write(1, s, 1);
 	}
-}
-
-#include <stdio.h>
-
-int main() {
-    char c = 'A';
-    int result = _printf("Character: %c\n", c);
-    printf("Result from _printf: %d\n", result);
-    return 0;
 }
