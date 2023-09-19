@@ -72,7 +72,7 @@ int _printf(const char *format, ...)
 				else
 				{
 					fputs("(nil)", stdout);
-					char_no += 6;
+					char_no += 5;
 				}
 			}
 			else if (*format == 'd' || *format == 'i')
