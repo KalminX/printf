@@ -17,8 +17,10 @@ int _printf(const char *format, ...)
 	va_list my_entries;
 
 	va_start(my_entries, format);
-	if (format == NULL || *format == '\0')
+	if (format == NULL)
 		return (-1);
+	if (*format == '\0')
+		return (0);
 
 	while (*format)
 	{
@@ -59,7 +61,8 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					return (-1);
+					write(1, "(null)", 5);
+					char_no++;
 				}
 			}
 			else if (*format == '%')
