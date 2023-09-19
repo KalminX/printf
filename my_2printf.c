@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
@@ -30,7 +31,10 @@ int _printf(const char *format, ...)
 				char_no++;
 			}
 			else if (*format == 't')
+			{
 				write(1, &tb, 1);
+				char_no++;
+			}
 		}
 		if (*format == '%' && *(format + 1))
 		{
@@ -71,10 +75,11 @@ int _printf(const char *format, ...)
 		else
 		{
 			write(1, format, 1);
+			char_no++;
 		}
-		char_no++;
 		format++;
 	}
 	va_end(my_entries);
 	return (char_no);
 }
+
