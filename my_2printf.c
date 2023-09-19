@@ -94,7 +94,7 @@ int _printf(const char *format, ...)
 				while (check_int > 0)
 				{
 					my_int = (num / check_int) % 10;
-					_putchar(my_int + '0');;
+					_putchar(my_int + '0');
 					char_no++;
 					check_int = check_int / 10;
 				}
