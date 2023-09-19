@@ -68,8 +68,31 @@ int _printf(const char *format, ...)
 				return (-1);
 			}
 		}
+		else
+		{
+			write(1, format, 1);
+		}
+		char_no++;
 		format++;
 	}
 	va_end(my_entries);
 	return (char_no);
+}
+
+
+#include <stdio.h>
+int main(void)
+{
+    int len;
+
+    len = _printf("Let's test: %%\n");
+    printf("Length: %d\n", len);
+
+    len = _printf("Character: %c\n", 'A');
+    printf("Length: %d\n", len);
+
+    len = _printf("String: %s\n", "Hello, World!");
+    printf("Length: %d\n", len);
+
+    return (0);
 }
