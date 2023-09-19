@@ -9,6 +9,7 @@
  * @format: the formatted string
  * Return: returns the number of characters
  */
+int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
 	int my_int, check_int;
@@ -74,7 +75,7 @@ int _printf(const char *format, ...)
 					char_no += 6;
 				}
 			}
-			 if (*format == 'd' || *format == 'i')
+			else if (*format == 'd' || *format == 'i')
 			{
 				num = va_arg(my_entries, int);
 
