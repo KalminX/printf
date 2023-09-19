@@ -71,7 +71,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					fputs("(null))", stdout);
+					fputs("(nil)", stdout);
 					char_no += 6;
 				}
 			}
