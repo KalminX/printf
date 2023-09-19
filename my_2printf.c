@@ -9,7 +9,6 @@
  * @format: the formatted string
  * Return: returns the number of characters
  */
-int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
 	int char_no = 0;
