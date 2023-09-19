@@ -69,7 +69,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					write(1, "(null)", 5);
+					write(1, "(null)", 6);
 					char_no += 5;
 				}
 			}
