@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
@@ -20,7 +21,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	if (*format == '\0')
-		return (0);
+		return(0);
 
 	while (*format)
 	{
@@ -44,8 +45,15 @@ int _printf(const char *format, ...)
 			if (*format == 'c')
 			{
 				c = va_arg(my_entries, int);
-				write(1, &c, 1);
-				char_no++;
+				if (c)
+				{
+					write(1, &c, 1);
+					char_no++;
+				}
+				else
+				{
+					return (-1);
+				}
 			}
 			else if (*format == 's')
 			{
@@ -61,8 +69,8 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					write(1, "(null)", 6);
-					char_no++;
+					write(1, "(null)", 5);
+					char_no += 5;
 				}
 			}
 			else if (*format == '%')
@@ -85,4 +93,3 @@ int _printf(const char *format, ...)
 	va_end(my_entries);
 	return (char_no);
 }
-
