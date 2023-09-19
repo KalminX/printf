@@ -81,7 +81,7 @@ int _printf(const char *format, ...)
 
 				if (num < 0)
 				{
-					putchar('-');
+					write(1, "-", 1);
 					char_no++;
 					num = -num;
 				}
@@ -94,7 +94,7 @@ int _printf(const char *format, ...)
 				while (check_int > 0)
 				{
 					my_int = (num / check_int) % 10;
-					putchar(my_int + '0');
+					write(1, &my_int, 1);
 					char_no++;
 					check_int = check_int / 10;
 				}
