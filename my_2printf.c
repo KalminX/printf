@@ -96,7 +96,7 @@ int _printf(const char *format, ...)
 					char_no++;
 					num = -num;
 				}
-				 check_int = 1;
+				check_int = 1;
 
 				while (num / check_int >= 10)
 				{
@@ -109,7 +109,6 @@ int _printf(const char *format, ...)
 					char_no++;
 					check_int = check_int / 10;
 				}
-
 			}
 			else if (*format == '%')
 			{
