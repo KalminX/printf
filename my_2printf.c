@@ -5,17 +5,6 @@
 #include <unistd.h>
 #include "main.h"
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-/**
  * _printf - the custom function
  * @format: the formatted string
  * Return: returns the number of characters
@@ -82,8 +71,8 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					fputs("(nil)", stdout);
-					char_no += 5;
+					fputs("(null))", stdout);
+					char_no += 6;
 				}
 			}
 			else if (*format == 'd' || *format == 'i')
@@ -96,7 +85,7 @@ int _printf(const char *format, ...)
 					char_no++;
 					num = -num;
 				}
-				check_int = 1;
+				 check_int = 1;
 
 				while (num / check_int >= 10)
 				{
@@ -109,6 +98,7 @@ int _printf(const char *format, ...)
 					char_no++;
 					check_int = check_int / 10;
 				}
+
 			}
 			else if (*format == '%')
 			{
